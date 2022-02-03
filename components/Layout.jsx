@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Box } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
   return (
@@ -14,7 +15,9 @@ export default function Layout({ children }) {
           <Navbar />
         </header>
         <main>{children}</main>
-        <footer>Footer</footer>
+        <footer>
+          <Footer />
+        </footer>
       </Box>
     </React.Fragment>
   );

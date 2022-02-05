@@ -4,6 +4,7 @@ import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import millify from "millify";
 import { baseUrl, fetchApi } from "../../utils/fetchApi";
+import ImageScrollbar from "../../utils/fetchApi";
 
 const propertyDetails = ({
   propertyDetails: {
@@ -28,8 +29,6 @@ const propertyDetails = ({
   </Box>
 );
 
-export default propertyDetails;
-
 export async function getServerSideProps({ params: { id } }) {
   const data = await fetchApi(`${baseUrl}/properties/detail?externalID=${id}`);
   return {
@@ -38,3 +37,5 @@ export async function getServerSideProps({ params: { id } }) {
     },
   };
 }
+
+export default propertyDetails;

@@ -52,7 +52,77 @@ const propertyDetails = ({
         <FaBed />|{baths}
         <FaBath />|{millify(area)} sqft <BsGridFill />
       </Flex>
-      <Text fontSize="lg">{title}</Text>
+      <Box marginTop="2">
+        <Text fontSize="lg" marginBottom="2" fontWeight="bold">
+          {title}
+        </Text>
+        <Text lineHeight="2" color="gray.600">
+          {description}
+        </Text>
+      </Box>
+      <Flex
+        flexWrap="wrap"
+        textTransform="uppercase"
+        justifyContent="space-between"
+      >
+        <Flex
+          justifyContent="space-between"
+          w="400px"
+          borderBottom="1px"
+          borderColor="gray.100"
+          p="3"
+        >
+          <Text>Type</Text>
+          <Text fontWeight="bold">{type}</Text>
+        </Flex>
+        <Flex
+          justifyContent="space-between"
+          w="400px"
+          borderBottom="1px"
+          borderColor="gray.100"
+          p="3"
+        >
+          <Text>Purpose</Text>
+          <Text fontWeight="bold">{purpose}</Text>
+        </Flex>
+        {furnishingStatus && (
+          <Flex
+            justifyContent="space-between"
+            w="400px"
+            borderBottom="1px"
+            borderColor="gray.100"
+            p="3"
+          >
+            <Text>Furnishing Status</Text>
+            <Text fontWeight="bold">{furnishingStatus}</Text>
+          </Flex>
+        )}
+      </Flex>
+      <Box>
+        {amenities.length && (
+          <Text fontSize="2xl" fontWeight="black" marginTop="5">
+            Amenities
+          </Text>
+        )}
+        <Flex flexWrap="wrap">
+          {amenities.map((item) =>
+            item.amenities.map((amenity) => (
+              <Text
+                fontWeight="bold"
+                color="blue.400"
+                fontSize="l"
+                p="3"
+                bg="gray.200"
+                m="1"
+                borderRadius="6"
+                key={amenity.text}
+              >
+                {amenity.text}
+              </Text>
+            ))
+          )}
+        </Flex>
+      </Box>
     </Box>
   </Box>
 );
